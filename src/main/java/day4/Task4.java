@@ -18,8 +18,12 @@ public class Task4 {
         //В цикле проходимся по каждому элементу массива от 0 до 97(вкл).
         for (int i = 0; i < numbers.length - 2; i++) {
             //Вычисляем сумму текущей тройки
-            int cycleSum = numbers[i] + numbers[i+1] + numbers[i+2];
-            //Сравниваем сумму текущей тройки с суммой максимальной тройки
+            int cycleSum = 0;
+            //Во вложенном цикле вычисляем сумму текущей тройки
+            for (int j = i; j < i + 3; j++) {
+                cycleSum += numbers[j];
+            }
+            //Сравниваем сумму текущей тройки с суммой макс.тройки
             if (cycleSum > maxSum) {
                 maxSum = cycleSum;
                 maxFirst = i;

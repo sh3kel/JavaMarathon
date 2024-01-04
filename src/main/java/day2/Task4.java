@@ -7,12 +7,14 @@ public class Task4 {
         Scanner scan = new Scanner(System.in);
 
         double x = scan.nextDouble();
+        double y;
         if (x >= 5) {
-            System.out.println((x * x - 10) / (x + 7));
+            y = (x * x - 10) / (x + 7);
         } else if (x < 5 && x > -3) {
-            System.out.println((x + 3) * (x * x - 2));
+            y = (x + 3) * (x * x - 2);
         } else {
-            System.out.println(420.0 );
+            y = 420.0;
         }
+        System.out.println(y);
     }
 }
