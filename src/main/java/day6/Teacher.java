@@ -5,6 +5,7 @@ import java.util.Random;
 public class Teacher {
     private String name;
     private String lesson;
+    Random rand = new Random();
     public Teacher(String name, String lesson) {
         this.name = name;
         this.lesson = lesson;
@@ -26,7 +27,6 @@ public class Teacher {
 
     public void evaluate(Student student) {
         //Генерируем рандомное число в интервале от [0;4), прибавляем к нему 2.
-        Random rand = new Random();
         int x = 2 + rand.nextInt(4);
         //Строковая переменная grad - оценка студента
         String grad = null;
@@ -41,7 +41,7 @@ public class Teacher {
             case 4:
                 grad = "хорошо";
                 break;
-            case 5:
+            default:
                 grad = "отлично";
                 break;
         }
