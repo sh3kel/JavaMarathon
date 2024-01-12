@@ -18,11 +18,11 @@ public class Warehouse {
         return "Кол-во собранных заказов: " + countPickedOrders + ". Количество доставленных заказов: " + countDeliveredOrders;
     }
 
-    public void setCountDeliveredOrders(int countDeliveredOrders) {
-        this.countDeliveredOrders = countDeliveredOrders;
+    public void incrementCountDeliveredOrders() {
+        countDeliveredOrders += 1;
     }
 
-    public void setCountPickedOrders(int countPickedOrders) {
-        this.countPickedOrders = countPickedOrders;
+    public void incrementCountPickedOrders() {
+        countPickedOrders += 1;
     }
 }

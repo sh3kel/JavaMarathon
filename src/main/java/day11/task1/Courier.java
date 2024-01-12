@@ -9,8 +9,6 @@ public class Courier implements Worker {
     private Warehouse ware;
 
     public Courier(Warehouse ware) {
-        salary = 0;
-        isPayed = false;
         this.ware = ware;
     }
 
@@ -33,12 +31,12 @@ public class Courier implements Worker {
         salary += 100;
         //При каждом вызове метода значение CountDeliveredOrders для склада, к которому
         //привязан сотрудник увеличивается на 1.
-        ware.setCountDeliveredOrders(ware.getCountDeliveredOrders() + 1);
+        ware.incrementCountDeliveredOrders();
     }
 
     @Override
     public void bonus() {
-        if(isPayed == true) {
+        if(isPayed) {
             System.out.println("Бонус уже был выплачен");
         } else if(ware.getCountDeliveredOrders() >= 10000) {
             //Выплатить бонус

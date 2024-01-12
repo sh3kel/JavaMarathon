@@ -9,8 +9,6 @@ public class Picker implements Worker {
     private Warehouse ware;
 
     public Picker(Warehouse ware) {
-        salary = 0;
-        isPayed = false;
         this.ware = ware;
     }
 
@@ -33,12 +31,12 @@ public class Picker implements Worker {
         salary += 80;
         //При каждом вызове метода значение CountPickedOrders для склада, к которому
         //привязан сотрудник увеличивается на 1.
-        ware.setCountPickedOrders(ware.getCountPickedOrders() + 1);
+        ware.incrementCountPickedOrders();
     }
 
     @Override
     public void bonus() {
-        if(isPayed == true) {
+        if(isPayed) {
             System.out.println("Бонус уже был выплачен");
         } else if(ware.getCountPickedOrders() >= 10000) {
             //Выплатить бонус
