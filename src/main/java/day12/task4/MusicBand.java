@@ -1,5 +1,7 @@
 package day12.task4;
 
+import day12.task5.MusicArtist;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -26,12 +28,12 @@ public class MusicBand {
         return year;
     }
 
-    public void addMembers(List <String> list) {
-        members.addAll(list);
-    }
-
     public void printMembers() {
         System.out.println(members);
+    }
+
+    public void addMembers(List <String> list) {
+        members.addAll(list);
     }
 
     public List <String> getMembers() {
@@ -39,7 +41,7 @@ public class MusicBand {
     }
 
     public static void transferMembers(MusicBand a, MusicBand b) {
-        b.addMembers(a.getMembers());
+        b.members.addAll(a.getMembers());
         a.members.clear();
     }
 

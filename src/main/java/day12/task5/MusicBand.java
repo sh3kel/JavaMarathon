@@ -40,7 +40,7 @@ public class MusicBand {
     }
 
     public static void transferMembers(MusicBand a, MusicBand b) {
-        b.addMembers(a.getMembers());
+        b.members.addAll(a.getMembers());
         a.members.clear();
     }
 
