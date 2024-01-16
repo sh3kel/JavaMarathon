@@ -13,7 +13,6 @@ public class Task1 {
     }
 
     public static void printSumDigits(File file) {
-        int sum = 0;
         final int NUMBERS_COUNT = 10;
 
         try {
@@ -21,15 +20,17 @@ public class Task1 {
             String line = scanner.nextLine();
             String[] numbers = line.split(" ");
             if (numbers.length != NUMBERS_COUNT) {
-                System.out.println("Некорректный входной файл");
-            } else {
-                for (String number : numbers) {
-                    sum += Integer.parseInt(number);
-                }
-                System.out.println(sum);
+                throw new IllegalArgumentException();
             }
+            int sum = 0;
+            for (String number : numbers) {
+                sum += Integer.parseInt(number);
+            }
+            System.out.println(sum);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Некорректный входной файл");
         }
     }
 }

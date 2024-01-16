@@ -18,8 +18,7 @@ public class Task3 {
     public static List <Person> parseFileToObjList(File file) {
         //Создаем список который вернет метод после успешного выполнения
         List <Person> personList = new ArrayList<>();
-        try {
-            Scanner scan = new Scanner(file);
+        try (Scanner scan = new Scanner(file)) {
             while(scan.hasNextLine()) {
                 String[] curLine = scan.nextLine().split(" "); //Создаем из строки список, переходим к следующей строке
                 String name = curLine[0]; //Сохраняем имя
@@ -33,8 +32,8 @@ public class Task3 {
         } catch (FileNotFoundException e) { //Если файл не найден
             System.out.println("Файл не найден");
             return null;
-        } catch (IOException e) { //Если в файле присутствует отрицательный возраст
-            System.out.println("Некорректный входной файл");
+        } catch (IOException | NumberFormatException | ArrayIndexOutOfBoundsException e) { //Если в файле присутствует отрицательный возраст
+            System.out.println("Неверный формат файла");
             return null;
         }
     }
