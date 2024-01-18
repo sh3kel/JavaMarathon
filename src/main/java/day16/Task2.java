@@ -68,7 +68,7 @@ public class Task2 {
             //Выводим результат на экран
             System.out.println(sum);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Файл не найден");
         }
     }
 }
